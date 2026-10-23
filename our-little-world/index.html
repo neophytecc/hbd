@@ -34,6 +34,7 @@
     before running our JavaScript.
   -->
   <script src="js/theme.js" defer></script>
+  <script src="js/balloons.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -135,6 +136,21 @@
           Today, this little world is all yours. ♡
         </p>
       </div>
+
+      <!-- =========================================
+           BIRTHDAY BALLOONS
+           Visitors click balloons to reveal messages.
+           ========================================= -->
+      <section
+        class="room-section"
+        aria-labelledby="balloons-title"
+      >
+        <h2 id="balloons-title">Pop a Balloon ♡</h2>
+
+        <p>Click a balloon to reveal a little message!</p>
+
+        <div id="balloons-container"></div>
+      </section>
 
       <!-- Main illustrated room. -->
       <div

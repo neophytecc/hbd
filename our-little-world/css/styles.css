@@ -1,0 +1,27 @@
+:root {
+  --bg-main: #0B0B0B;
+  --red-primary: #B11226;
+  --red-bright: #E63946;
+}
+
+@media (max-width: 480px) {
+  .room-navigation {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes balloon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.balloon {
+  animation: balloon-float 3s ease-in-out infinite;
+}
+
+

@@ -1,1 +1,454 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Make the layout adapt to phones, tablets, and desktops. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Short description shown by search engines and link previews. -->
+  <meta
+    name="description"
+    content="Our Little World — a tiny birthday world made just for us."
+  >
+
+  <meta name="theme-color" content="#0B0B0B">
+
+  <title>OUR LITTLE WORLD ♡</title>
+
+  <!-- Pixel-art and retro typography. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Our styles will live in a separate file. -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!--
+    "defer" tells the browser to wait until the HTML is parsed
+    before running our JavaScript.
+  -->
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- Announces important updates to screen readers. -->
+  <p
+    id="screen-reader-status"
+    class="sr-only"
+    role="status"
+    aria-live="polite"
+  ></p>
+
+  <!-- =========================================
+       WELCOME SCREEN
+       The first screen visitors see.
+       ========================================= -->
+  <main id="app">
+    <section
+      id="welcome-screen"
+      class="welcome-screen"
+      aria-labelledby="welcome-title"
+    >
+      <!-- JavaScript will create decorative stars and hearts here. -->
+      <div
+        id="welcome-decorations"
+        class="welcome-decorations"
+        aria-hidden="true"
+      ></div>
+
+      <div class="pixel-frame">
+        <p class="eyebrow">A SPECIAL LITTLE PLACE</p>
+
+        <h1 id="welcome-title">
+          OUR LITTLE<br>
+          WORLD <span aria-hidden="true">♡</span>
+        </h1>
+
+        <p class="welcome-subtitle">happy birthday ♡</p>
+
+        <p class="welcome-tagline">
+          A tiny world made just for us.
+        </p>
+
+        <button
+          id="enter-button"
+          class="pixel-button"
+          type="button"
+          aria-controls="birthday-room"
+        >
+          ENTER <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="welcome-footer">
+          MADE WITH LOVE, JUST FOR YOU
+        </p>
+      </div>
+    </section>
+
+    <!-- =========================================
+         BIRTHDAY ROOM
+         Hidden until the visitor presses ENTER.
+         ========================================= -->
+    <section
+      id="birthday-room"
+      class="birthday-room"
+      aria-labelledby="room-title"
+      hidden
+    >
+      <header class="room-header">
+        <a
+          href="#welcome-screen"
+          id="home-link"
+          class="room-logo"
+          aria-label="Return to the welcome screen"
+        >
+          OUR LITTLE WORLD <span aria-hidden="true">♡</span>
+        </a>
+
+        <div class="room-header-actions">
+          <button
+            id="sound-toggle"
+            class="icon-button"
+            type="button"
+            aria-label="Turn sound on or off"
+            aria-pressed="false"
+          >
+            <span aria-hidden="true">♪</span>
+            <span id="sound-label">SOUND OFF</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="room-intro">
+        <p class="eyebrow">YOU ARE HOME</p>
+
+        <h2 id="room-title">A Little Birthday Room</h2>
+
+        <p id="room-greeting">
+          Today, this little world is all yours. ♡
+        </p>
+      </div>
+
+      <!-- Main illustrated room. -->
+      <div
+        id="room-scene"
+        class="room-scene"
+        aria-label="Interactive pixel-art birthday room"
+      >
+        <!-- Decorations will be styled and animated with CSS. -->
+        <div class="room-window" aria-hidden="true">
+          <span class="window-star">✦</span>
+          <span class="window-moon">☾</span>
+        </div>
+
+        <div
+          id="balloon-area"
+          class="balloon-area"
+          aria-label="Birthday balloons"
+        >
+          <!-- JavaScript will create six interactive balloons. -->
+        </div>
+
+        <section
+          id="cake-area"
+          class="scene-object cake-area"
+          aria-labelledby="cake-title"
+        >
+          <h3 id="cake-title">MAKE A WISH</h3>
+
+          <button
+            id="cake-button"
+            class="cake-button"
+            type="button"
+            aria-label="Blow out the birthday candles"
+            aria-describedby="cake-help"
+          >
+            <span class="cake-candles" aria-hidden="true">🕯️🕯️🕯️</span>
+            <span class="cake-illustration" aria-hidden="true">🎂</span>
+          </button>
+
+          <p id="cake-help" class="object-caption">
+            Tap the cake to blow out the candles.
+          </p>
+        </section>
+
+        <section
+          id="pet-area"
+          class="pet-area"
+          aria-label="Your little companion"
+        >
+          <div
+            id="pet-speech"
+            class="pet-speech"
+            role="status"
+            aria-live="polite"
+          >
+            meow ♡
+          </div>
+
+          <button
+            id="pet-button"
+            class="pet-button"
+            type="button"
+            aria-label="Say hello to your pixel pet"
+          >
+            <span id="pet-sprite" aria-hidden="true">🐈‍⬛</span>
+          </button>
+        </section>
+
+        <div class="room-floor" aria-hidden="true"></div>
+      </div>
+
+      <!-- Interactive features below the room illustration. -->
+      <nav
+        class="room-navigation"
+        aria-label="Birthday room activities"
+      >
+        <button
+          class="activity-button"
+          type="button"
+          data-open-panel="memories-panel"
+        >
+          <span aria-hidden="true">♥</span>
+          Memories &amp; Wishes
+        </button>
+
+        <button
+          class="activity-button"
+          type="button"
+          data-open-panel="photobooth-panel"
+        >
+          <span aria-hidden="true">▣</span>
+          Photo Booth
+        </button>
+      </nav>
+
+      <!-- =====================================
+           MEMORIES & WISHES
+           Notes will be stored locally first.
+           ===================================== -->
+      <section
+        id="memories-panel"
+        class="feature-panel"
+        aria-labelledby="memories-title"
+        hidden
+      >
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">LITTLE THINGS, BIG FEELINGS</p>
+            <h2 id="memories-title">Memories &amp; Wishes</h2>
+          </div>
+
+          <button
+            class="close-panel"
+            type="button"
+            data-close-panel="memories-panel"
+            aria-label="Close memories and wishes"
+          >
+            ×
+          </button>
+        </div>
+
+        <p>
+          Leave a little piece of your heart on this wall.
+        </p>
+
+        <form id="memory-form">
+          <label for="memory-type">What would you like to leave?</label>
+
+          <select id="memory-type" name="type">
+            <option value="memory">A favorite memory</option>
+            <option value="wish">A birthday wish</option>
+          </select>
+
+          <label for="memory-message">Your message</label>
+
+          <textarea
+            id="memory-message"
+            name="message"
+            maxlength="120"
+            rows="3"
+            placeholder="Something sweet, funny, or unforgettable..."
+            required
+          ></textarea>
+
+          <div class="character-counter">
+            <span id="character-count">0</span>/120
+          </div>
+
+          <label for="memory-color">Sticky note color</label>
+
+          <select id="memory-color" name="color">
+            <option value="sticky-1">Cherry red</option>
+            <option value="sticky-2">Deep crimson</option>
+            <option value="sticky-3">Bright red</option>
+            <option value="sticky-4">Dark wine</option>
+            <option value="sticky-5">Midnight red</option>
+          </select>
+
+          <button class="pixel-button" type="submit">
+            PIN TO WALL ♡
+          </button>
+        </form>
+
+        <div
+          id="memory-wall"
+          class="memory-wall"
+          aria-label="Saved birthday memories and wishes"
+        >
+          <!-- Saved notes will appear here. -->
+        </div>
+      </section>
+
+      <!-- =====================================
+           PHOTO BOOTH
+           The browser will ask for camera access.
+           ===================================== -->
+      <section
+        id="photobooth-panel"
+        class="feature-panel"
+        aria-labelledby="photobooth-title"
+        hidden
+      >
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">SAY CHEESE</p>
+            <h2 id="photobooth-title">Our Photo Booth</h2>
+          </div>
+
+          <button
+            class="close-panel"
+            type="button"
+            data-close-panel="photobooth-panel"
+            aria-label="Close photo booth"
+          >
+            ×
+          </button>
+        </div>
+
+        <p>
+          Capture a tiny moment to keep forever.
+        </p>
+
+        <div class="camera-frame">
+          <video
+            id="camera-video"
+            autoplay
+            playsinline
+            muted
+            aria-label="Live camera preview"
+          ></video>
+
+          <canvas
+            id="photo-canvas"
+            hidden
+            aria-label="Captured photograph"
+          ></canvas>
+
+          <div
+            id="camera-placeholder"
+            class="camera-placeholder"
+          >
+            <span aria-hidden="true">▣</span>
+            <p>Your little photo moment goes here.</p>
+          </div>
+        </div>
+
+        <div class="camera-controls">
+          <button
+            id="start-camera-button"
+            class="pixel-button"
+            type="button"
+          >
+            OPEN CAMERA
+          </button>
+
+          <button
+            id="capture-photo-button"
+            class="pixel-button"
+            type="button"
+            disabled
+          >
+            TAKE PHOTO
+          </button>
+
+          <button
+            id="stop-camera-button"
+            class="secondary-button"
+            type="button"
+            disabled
+          >
+            CLOSE CAMERA
+          </button>
+        </div>
+
+        <div
+          id="photo-strip"
+          class="photo-strip"
+          aria-label="Your photo strip"
+          hidden
+        >
+          <!-- The finished photo strip will appear here. -->
+        </div>
+
+        <a
+          id="download-photo-button"
+          class="download-link"
+          href="#photobooth-panel"
+          hidden
+        >
+          DOWNLOAD OUR PHOTO ♡
+        </a>
+      </section>
+
+      <footer class="room-footer">
+        <p>made with love, for our little world ♡</p>
+        <p>stay a little longer.</p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- =========================================
+       SHARED MESSAGE DIALOG
+       Used for balloon messages and note details.
+       ========================================= -->
+  <dialog
+    id="message-dialog"
+    class="pixel-dialog"
+    aria-labelledby="dialog-title"
+  >
+    <div class="dialog-inner">
+      <button
+        id="dialog-close-button"
+        class="dialog-close"
+        type="button"
+        aria-label="Close message"
+      >
+        ×
+      </button>
+
+      <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+
+      <h2 id="dialog-title">A message from the heart ♡</h2>
+
+      <p id="dialog-message"></p>
+    </div>
+  </dialog>
+
+  <!-- Short-lived feedback, such as "Candles relit!" -->
+  <div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    hidden
+  ></div>
+</body>
+</html>
+

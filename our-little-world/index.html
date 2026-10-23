@@ -327,113 +327,145 @@
         </div>
       </section>
 
-      <!-- =====================================
-           PHOTO BOOTH
-           The browser will ask for camera access.
-           ===================================== -->
-      <section
-        id="photobooth-panel"
-        class="feature-panel"
-        aria-labelledby="photobooth-title"
+      
+<!-- =====================================
+     PHOTO BOOTH
+     Camera, selfie capture, and photo strip.
+     ===================================== -->
+<section
+  id="photobooth-panel"
+  class="feature-panel"
+  aria-labelledby="photobooth-title"
+  hidden
+>
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">SAY CHEESE</p>
+      <h2 id="photobooth-title">Our Photo Booth ♡</h2>
+    </div>
+
+    <button
+      class="close-panel"
+      type="button"
+      data-close-panel="photobooth-panel"
+      aria-label="Close photo booth"
+    >
+      ×
+    </button>
+  </div>
+
+  <p>Capture a little memory to keep forever.</p>
+
+  <button
+    id="open-camera"
+    class="pixel-button"
+    type="button"
+  >
+    OPEN CAMERA ♡
+  </button>
+
+  <p class="object-caption">
+    Take a selfie and keep a little piece of our world.
+  </p>
+</section>
+
+<!-- =====================================
+     CAMERA MODAL
+     Used by js/camera.js
+     ===================================== -->
+<dialog
+  id="camera-modal"
+  class="pixel-dialog camera-modal"
+  aria-labelledby="camera-modal-title"
+>
+  <div class="dialog-inner">
+    <button
+      id="camera-close"
+      class="dialog-close"
+      type="button"
+      aria-label="Close camera"
+      onclick="window.PartyCamera?.close()"
+    >
+      ×
+    </button>
+
+    <p class="eyebrow">A LITTLE MEMORY ♡</p>
+    <h2 id="camera-modal-title">Our Photo Booth</h2>
+
+    <div id="booth-stage" class="booth-stage">
+      <div id="booth-flash" class="booth-flash"></div>
+
+      <video
+        id="booth-video"
+        autoplay
+        playsinline
+        muted
+        aria-label="Live selfie camera"
+      ></video>
+
+      <canvas
+        id="booth-canvas"
+        hidden
+      ></canvas>
+
+      <img
+        id="booth-preview"
+        alt="Your captured photo"
         hidden
       >
-        <div class="panel-heading">
-          <div>
-            <p class="eyebrow">SAY CHEESE</p>
-            <h2 id="photobooth-title">Our Photo Booth</h2>
-          </div>
 
-          <button
-            class="close-panel"
-            type="button"
-            data-close-panel="photobooth-panel"
-            aria-label="Close photo booth"
-          >
-            ×
-          </button>
-        </div>
-
-        <p>
-          Capture a tiny moment to keep forever.
-        </p>
-
-        <div class="camera-frame">
-          <video
-            id="camera-video"
-            autoplay
-            playsinline
-            muted
-            aria-label="Live camera preview"
-          ></video>
-
-          <canvas
-            id="photo-canvas"
-            hidden
-            aria-label="Captured photograph"
-          ></canvas>
-
-          <div
-            id="camera-placeholder"
-            class="camera-placeholder"
-          >
-            <span aria-hidden="true">▣</span>
-            <p>Your little photo moment goes here.</p>
-          </div>
-        </div>
-
-        <div class="camera-controls">
-          <button
-            id="start-camera-button"
-            class="pixel-button"
-            type="button"
-          >
-            OPEN CAMERA
-          </button>
-
-          <button
-            id="capture-photo-button"
-            class="pixel-button"
-            type="button"
-            disabled
-          >
-            TAKE PHOTO
-          </button>
-
-          <button
-            id="stop-camera-button"
-            class="secondary-button"
-            type="button"
-            disabled
-          >
-            CLOSE CAMERA
-          </button>
-        </div>
-
+      <div id="booth-slot" class="booth-slot">
         <div
-          id="photo-strip"
-          class="photo-strip"
-          aria-label="Your photo strip"
+          id="booth-strip-out"
+          class="booth-strip-out"
           hidden
         >
-          <!-- The finished photo strip will appear here. -->
+          <img
+            id="booth-strip-img"
+            alt="Printed photo strip"
+          >
         </div>
+      </div>
+    </div>
 
-        <a
-          id="download-photo-button"
-          class="download-link"
-          href="#photobooth-panel"
-          hidden
-        >
-          DOWNLOAD OUR PHOTO ♡
-        </a>
-      </section>
+    <p
+      id="booth-error"
+      class="camera-error"
+      role="alert"
+      hidden
+    ></p>
 
-      <footer class="room-footer">
-        <p>made with love, for our little world ♡</p>
-        <p>stay a little longer.</p>
-      </footer>
-    </section>
-  </main>
+    <div class="camera-controls">
+      <button
+        id="booth-capture"
+        class="pixel-button"
+        type="button"
+      >
+        TAKE PHOTO ♡
+      </button>
+
+      <button
+        id="booth-retake"
+        class="pixel-button"
+        type="button"
+        hidden
+      >
+        RETAKE
+      </button>
+
+      <a
+        id="booth-download"
+        class="pixel-button"
+        href="#"
+        download="our-little-world-photo.png"
+        hidden
+      >
+        DOWNLOAD PHOTO
+      </a>
+    </div>
+  </div>
+</dialog>
+
 
   <!-- =========================================
        SHARED MESSAGE DIALOG

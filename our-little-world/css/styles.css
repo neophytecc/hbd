@@ -1,15 +1,18 @@
+
 :root {
   --bg-main: #0B0B0B;
   --red-primary: #B11226;
   --red-bright: #E63946;
 }
 
+/* Mobile layout */
 @media (max-width: 480px) {
   .room-navigation {
     grid-template-columns: 1fr;
   }
 }
 
+/* Floating balloon animation */
 @keyframes balloon-float {
   0%, 100% {
     transform: translateY(0);
@@ -20,8 +23,33 @@
   }
 }
 
+/* Balloon elements */
 .balloon {
+  display: block;
+  width: 64px;
+  height: auto;
+  object-fit: contain;
   animation: balloon-float 3s ease-in-out infinite;
+  cursor: pointer;
+  image-rendering: pixelated;
 }
 
+/* Alternate the animation timing */
+.balloon:nth-child(2) {
+  animation-delay: 0.4s;
+}
 
+.balloon:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+.balloon:nth-child(4) {
+  animation-delay: 1.2s;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .balloon {
+    animation: none;
+  }
+}

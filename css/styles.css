@@ -1564,3 +1564,70 @@ img {
     bottom: 30px;
   }
 }
+
+
+/* ===== PIXEL ROOM FURNITURE AND DECOR ===== */
+
+#room-scene {
+  min-height: 520px !important;
+}
+
+/* Wooden table and chairs */
+#room-scene::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 35px;
+  transform: translateX(-50%);
+  width: min(52%, 480px);
+  height: 260px;
+  background: url("../asset/px-table-chairs.png") center bottom / contain no-repeat;
+  image-rendering: pixelated;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Cake image instead of emoji */
+#cake-area .cake-illustration {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  background: url("../asset/px-cake.png") center / contain no-repeat;
+  font-size: 0 !important;
+  position: relative;
+  z-index: 4;
+}
+
+/* Photo booth on the left */
+#room-scene .photo-booth-art {
+  position: absolute;
+  left: 2%;
+  bottom: 35px;
+  width: 150px;
+  height: 290px;
+  background: url("../asset/px-photobooth.png") center bottom / contain no-repeat;
+  image-rendering: pixelated;
+  z-index: 3;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  #room-scene {
+    min-height: 440px !important;
+  }
+
+  #room-scene::before {
+    width: 68%;
+    height: 190px;
+  }
+
+  #cake-area .cake-illustration {
+    width: 90px;
+    height: 90px;
+  }
+
+  #room-scene .photo-booth-art {
+    width: 78px;
+    height: 190px;
+  }
+}

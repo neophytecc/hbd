@@ -1262,3 +1262,149 @@ img {
   }
 }
 
+
+/* ===== FIX: OUR LITTLE WORLD ROOM ===== */
+
+/* Keep all elements sized correctly */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Make the room itself visible and properly sized */
+#room-scene.room-scene {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 460px;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #291016;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,60,80,.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+  border: 4px solid #080608;
+  box-shadow: 0 0 0 3px #a52635, 0 18px 40px rgba(0,0,0,.45);
+}
+
+/* The separate balloon section above the room */
+#balloons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  min-height: 0;
+  padding: 16px;
+}
+
+/* Prevent balloon images from stretching into large boxes */
+#balloons-container img {
+  display: block;
+  width: 64px;
+  height: 88px;
+  max-width: 64px;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+}
+
+/* Keep balloons inside the room */
+#balloon-area.balloon-area {
+  position: absolute;
+  top: 24px;
+  left: 4%;
+  width: 48%;
+  min-height: 130px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  z-index: 3;
+}
+
+#balloon-area button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+#balloon-area img {
+  display: block;
+  width: 54px;
+  height: 76px;
+  max-width: 54px;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+}
+
+/* Arrange the cake and cat inside the room */
+#cake-area.cake-area {
+  position: absolute;
+  left: 50%;
+  bottom: 42px;
+  width: 38%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 3;
+}
+
+#pet-area.pet-area {
+  position: absolute;
+  right: 6%;
+  bottom: 34px;
+  z-index: 4;
+  text-align: center;
+}
+
+/* Floor across the bottom of the room */
+#room-scene .room-floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 38px;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    90deg,
+    #30151c 0 22px,
+    #491923 22px 24px
+  );
+  border-top: 4px solid #a52635;
+}
+
+/* Keep the room responsive */
+@media (max-width: 600px) {
+  #room-scene.room-scene {
+    min-height: 390px;
+  }
+
+  #balloon-area.balloon-area {
+    left: 2%;
+    width: 52%;
+  }
+
+  #balloon-area img {
+    width: 38px;
+    height: 58px;
+    max-width: 38px;
+  }
+
+  #cake-area.cake-area {
+    left: 42%;
+    width: 44%;
+  }
+
+  #pet-area.pet-area {
+    right: 2%;
+    bottom: 28px;
+  }
+}

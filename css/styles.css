@@ -1408,3 +1408,84 @@ img {
     bottom: 28px;
   }
 }
+
+
+/* ===== ROOM BALLOONS: FIX IMAGE BOXES ===== */
+
+#balloon-area .birthday-balloon {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 54px;
+  width: 54px;
+  height: 100px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  animation: birthday-float 3.5s ease-in-out infinite alternate;
+}
+
+#balloon-area .birthday-balloon .balloon-image {
+  display: block;
+  width: 54px;
+  height: 72px;
+  max-width: 54px;
+  object-fit: contain;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  image-rendering: pixelated;
+}
+
+#balloon-area .birthday-balloon .balloon-string {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  width: 2px;
+  height: 27px;
+  background: #e6b5b5;
+  transform: translateX(-50%);
+}
+
+#balloon-area .birthday-balloon:hover {
+  filter: brightness(1.15);
+}
+
+#balloon-area .birthday-balloon.balloon-popped {
+  animation: birthday-pop 0.25s ease-out forwards;
+}
+
+@keyframes birthday-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-9px); }
+}
+
+@keyframes birthday-pop {
+  to {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+@media (max-width: 600px) {
+  #balloon-area .birthday-balloon {
+    flex-basis: 38px;
+    width: 38px;
+    height: 78px;
+  }
+
+  #balloon-area .birthday-balloon .balloon-image {
+    width: 38px;
+    height: 54px;
+    max-width: 38px;
+  }
+
+  #balloon-area .birthday-balloon .balloon-string {
+    top: 53px;
+    height: 22px;
+  }
+}

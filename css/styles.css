@@ -1531,9 +1531,11 @@ img {
   animation: cat-walk-one 12s linear infinite alternate;
 }
 
-/* Cat 2 — filename contains a space */
+/* Cat 2 — black pixel cat */
 #pet-area::after {
-  background-image: url("../asset/px-cat%201.png");
+  background-image: url("../asset/px-cat1.png");
+  filter: brightness(0) saturate(100%)
+          drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.45));
   animation: cat-walk-two 15s linear infinite alternate;
 }
 

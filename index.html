@@ -156,352 +156,110 @@
         <div id="balloons-container"></div>
       </section>
 
-      <!-- Main illustrated room. -->
-      <div
-        id="room-scene"
-        class="room-scene"
-        aria-label="Interactive pixel-art birthday room"
-      >
-        <!-- Decorations will be styled and animated with CSS. -->
-        <div class="room-window" aria-hidden="true">
-          <span class="window-star">✦</span>
-          <span class="window-moon">☾</span>
-        </div>
-
-        <div
-          id="balloon-area"
-          class="balloon-area"
-          aria-label="Birthday balloons"
-        >
-          <!-- JavaScript will create six interactive balloons. -->
-        </div>
-
-        <section
-          id="cake-area"
-          class="scene-object cake-area"
-          aria-labelledby="cake-title"
-        >
-          <h3 id="cake-title">MAKE A WISH</h3>
-
-          <button
-            id="cake-button"
-            class="cake-button"
-            type="button"
-            aria-label="Blow out the birthday candles"
-            aria-describedby="cake-help"
-          >
-            <span class="cake-candles" aria-hidden="true">🕯️🕯️🕯️</span>
-            <span class="cake-illustration" aria-hidden="true">🎂</span>
-          </button>
-
-          <p id="cake-help" class="object-caption">
-            Tap the cake to blow out the candles.
-          </p>
-        </section>
-
-        <section
-          id="pet-area"
-          class="pet-area"
-          aria-label="Your little companion"
-        >
-          <div
-            id="pet-speech"
-            class="pet-speech"
-            role="status"
-            aria-live="polite"
-          >
-            meow ♡
-          </div>
-
-          <button
-            id="pet-button"
-            class="pet-button"
-            type="button"
-            aria-label="Say hello to your pixel pet"
-          >
-            <span id="pet-sprite" aria-hidden="true">🐈‍⬛</span>
-          </button>
-        </section>
-
-        <div class="room-floor" aria-hidden="true"></div>
-      </div>
-
-      <!-- Interactive features below the room illustration. -->
-      <nav
-        class="room-navigation"
-        aria-label="Birthday room activities"
-      >
-        <button
-          class="activity-button"
-          type="button"
-          data-open-panel="memories-panel"
-        >
-          <span aria-hidden="true">♥</span>
-          Memories &amp; Wishes
-        </button>
-
-        <button
-          class="activity-button"
-          type="button"
-          data-open-panel="photobooth-panel"
-        >
-          <span aria-hidden="true">▣</span>
-          Photo Booth
-        </button>
-      </nav>
-
-      <!-- =====================================
-           MEMORIES & WISHES
-           Notes will be stored locally first.
-           ===================================== -->
-      <section
-        id="memories-panel"
-        class="feature-panel"
-        aria-labelledby="memories-title"
-        hidden
-      >
-        <div class="panel-heading">
-          <div>
-            <p class="eyebrow">LITTLE THINGS, BIG FEELINGS</p>
-            <h2 id="memories-title">Memories &amp; Wishes</h2>
-          </div>
-
-          <button
-            class="close-panel"
-            type="button"
-            data-close-panel="memories-panel"
-            aria-label="Close memories and wishes"
-          >
-            ×
-          </button>
-        </div>
-
-        <p>
-          Leave a little piece of your heart on this wall.
-        </p>
-
-        <form id="memory-form">
-          <label for="memory-type">What would you like to leave?</label>
-
-          <select id="memory-type" name="type">
-            <option value="memory">A favorite memory</option>
-            <option value="wish">A birthday wish</option>
-          </select>
-
-          <label for="memory-message">Your message</label>
-
-          <textarea
-            id="memory-message"
-            name="message"
-            maxlength="120"
-            rows="3"
-            placeholder="Something sweet, funny, or unforgettable..."
-            required
-          ></textarea>
-
-          <div class="character-counter">
-            <span id="character-count">0</span>/120
-          </div>
-
-          <label for="memory-color">Sticky note color</label>
-
-          <select id="memory-color" name="color">
-            <option value="sticky-1">Cherry red</option>
-            <option value="sticky-2">Deep crimson</option>
-            <option value="sticky-3">Bright red</option>
-            <option value="sticky-4">Dark wine</option>
-            <option value="sticky-5">Midnight red</option>
-          </select>
-
-          <button class="pixel-button" type="submit">
-            PIN TO WALL ♡
-          </button>
-        </form>
-
-        <div
-          id="memory-wall"
-          class="memory-wall"
-          aria-label="Saved birthday memories and wishes"
-        >
-          <!-- Saved notes will appear here. -->
-        </div>
-      </section>
-
-      
-<!-- =====================================
-     PHOTO BOOTH
-     Camera, selfie capture, and photo strip.
-     ===================================== -->
-<section
-  id="photobooth-panel"
-  class="feature-panel"
-  aria-labelledby="photobooth-title"
-  hidden
+     
+<!-- Main illustrated room -->
+<div
+  id="room-scene"
+  class="room-scene"
+  aria-label="Interactive pixel-art birthday room"
 >
-  <div class="panel-heading">
-    <div>
-      <p class="eyebrow">SAY CHEESE</p>
-      <h2 id="photobooth-title">Our Photo Booth ♡</h2>
-    </div>
-
-    <button
-      class="close-panel"
-      type="button"
-      data-close-panel="photobooth-panel"
-      aria-label="Close photo booth"
-    >
-      ×
-    </button>
+  <!-- Decorative sticky notes on the wall -->
+  <div id="room-sticky-wall" class="room-sticky-wall">
+    <button class="sticky sticky-1" data-message="You make my world brighter.">you make me happy ♡</button>
+    <button class="sticky sticky-2" data-message="My favorite memories are the ones with you.">our little memories</button>
+    <button class="sticky sticky-3" data-message="I hope your birthday is full of love.">happy birthday!</button>
+    <button class="sticky sticky-4" data-message="Thank you for being you.">thank you for everything</button>
+    <button class="sticky sticky-5" data-message="Wishing you the happiest year ahead.">make a wish ✦</button>
+    <button class="sticky sticky-1" data-message="You will always have a special place in my heart.">a little note for you</button>
+    <button class="sticky sticky-3" data-message="More memories, more laughter, more birthdays together.">more adventures ♡</button>
+    <button class="sticky sticky-2" data-message="You deserve all the happiness in the world.">you deserve the best</button>
   </div>
 
-  <p>Capture a little memory to keep forever.</p>
+  <!-- Window -->
+  <div class="room-window" aria-hidden="true">
+    <span class="window-star">✦</span>
+    <span class="window-moon">☾</span>
+  </div>
 
+  <!-- Balloons -->
+  <div
+    id="balloon-area"
+    class="balloon-area"
+    aria-label="Birthday balloons"
+  ></div>
+
+  <!-- Photo booth asset -->
   <button
-    id="open-camera"
-    class="pixel-button"
+    id="room-photobooth"
+    class="room-photobooth"
     type="button"
+    data-open-panel="photobooth-panel"
+    aria-label="Open the photo booth"
   >
-    OPEN CAMERA ♡
+    <img src="asset/px-photobooth.png" alt="">
   </button>
 
-  <p class="object-caption">
-    Take a selfie and keep a little piece of our world.
-  </p>
-</section>
+  <!-- Table and chairs asset -->
+  <img
+    class="room-table-art"
+    src="asset/px-table-chairs.png"
+    alt=""
+    aria-hidden="true"
+  >
 
-<!-- =====================================
-     CAMERA MODAL
-     Used by js/camera.js
-     ===================================== -->
-<dialog
-  id="camera-modal"
-  class="pixel-dialog camera-modal"
-  aria-labelledby="camera-modal-title"
->
-  <div class="dialog-inner">
+  <!-- Cake using your pixel-art image -->
+  <section
+    id="cake-area"
+    class="scene-object cake-area"
+    aria-labelledby="cake-title"
+  >
+    <h3 id="cake-title">MAKE A WISH</h3>
+
     <button
-      id="camera-close"
-      class="dialog-close"
+      id="cake-button"
+      class="cake-button"
       type="button"
-      aria-label="Close camera"
-      onclick="window.PartyCamera?.close()"
+      aria-label="Blow out the birthday candles"
+      aria-describedby="cake-help"
     >
-      ×
+      <span class="cake-candles" aria-hidden="true">🕯️🕯️🕯️</span>
+      <img
+        class="cake-illustration"
+        src="asset/px-cake.png"
+        alt=""
+      >
     </button>
 
-    <p class="eyebrow">A LITTLE MEMORY ♡</p>
-    <h2 id="camera-modal-title">Our Photo Booth</h2>
+    <p id="cake-help" class="object-caption">
+      Tap the cake to blow out the candles.
+    </p>
+  </section>
 
-    <div id="booth-stage" class="booth-stage">
-      <div id="booth-flash" class="booth-flash"></div>
-
-      <video
-        id="booth-video"
-        autoplay
-        playsinline
-        muted
-        aria-label="Live selfie camera"
-      ></video>
-
-      <canvas
-        id="booth-canvas"
-        hidden
-      ></canvas>
-
-      <img
-        id="booth-preview"
-        alt="Your captured photo"
-        hidden
-      >
-
-      <div id="booth-slot" class="booth-slot">
-        <div
-          id="booth-strip-out"
-          class="booth-strip-out"
-          hidden
-        >
-          <img
-            id="booth-strip-img"
-            alt="Printed photo strip"
-          >
-        </div>
-      </div>
-    </div>
-
-    <p
-      id="booth-error"
-      class="camera-error"
-      role="alert"
-      hidden
-    ></p>
-
-    <div class="camera-controls">
-      <button
-        id="booth-capture"
-        class="pixel-button"
-        type="button"
-      >
-        TAKE PHOTO ♡
-      </button>
-
-      <button
-        id="booth-retake"
-        class="pixel-button"
-        type="button"
-        hidden
-      >
-        RETAKE
-      </button>
-
-      <a
-        id="booth-download"
-        class="pixel-button"
-        href="#"
-        download="our-little-world-photo.png"
-        hidden
-      >
-        DOWNLOAD PHOTO
-      </a>
-    </div>
+  <!-- Two cat images -->
+  <div id="room-cats" class="room-cats" aria-label="Two pixel cats">
+    <img class="room-cat room-cat-one" src="asset/px-cat.png" alt="">
+    <img class="room-cat room-cat-two" src="asset/px-cat1.png" alt="">
   </div>
-</dialog>
 
+  <!-- Keep the original interactive pet control -->
+  <section id="pet-area" class="pet-area" aria-label="Your little companion">
+    <div
+      id="pet-speech"
+      class="pet-speech"
+      role="status"
+      aria-live="polite"
+    >meow ♡</div>
 
-  <!-- =========================================
-       SHARED MESSAGE DIALOG
-       Used for balloon messages and note details.
-       ========================================= -->
-  <dialog
-    id="message-dialog"
-    class="pixel-dialog"
-    aria-labelledby="dialog-title"
-  >
-    <div class="dialog-inner">
-      <button
-        id="dialog-close-button"
-        class="dialog-close"
-        type="button"
-        aria-label="Close message"
-      >
-        ×
-      </button>
+    <button
+      id="pet-button"
+      class="pet-button"
+      type="button"
+      aria-label="Say hello to your pixel pet"
+    >
+      <span id="pet-sprite" aria-hidden="true">🐈‍⬛</span>
+    </button>
+  </section>
 
-      <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
-
-      <h2 id="dialog-title">A message from the heart ♡</h2>
-
-      <p id="dialog-message"></p>
-    </div>
-  </dialog>
-
-  <!-- Short-lived feedback, such as "Candles relit!" -->
-  <div
-    id="toast"
-    class="toast"
-    role="status"
-    aria-live="polite"
-    hidden
-  ></div>
-</body>
-</html>
-
+  <!-- Floor -->
+  <div class="room-floor" aria-hidden="true"></div>
+</div>

@@ -1489,3 +1489,77 @@ img {
     height: 22px;
   }
 }
+
+
+/* ===== TWO WALKING BLACK PIXEL CATS ===== */
+
+#pet-area.pet-area {
+  position: absolute;
+  right: 2%;
+  bottom: 34px;
+  width: 90%;
+  height: 76px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Hide the old single cat icon */
+#pet-area .pet-button span {
+  font-size: 0;
+}
+
+/* Both cats use your existing pixel-cat image */
+#pet-area::before,
+#pet-area::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 64px;
+  height: 64px;
+  background-image: url("../asset/px-cat.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.45));
+  pointer-events: auto;
+}
+
+/* Cat 1 */
+#pet-area::before {
+  left: 10%;
+  animation: cat-walk-one 12s linear infinite alternate;
+}
+
+/* Cat 2 */
+#pet-area::after {
+  left: 65%;
+  transform: scaleX(-1);
+  animation: cat-walk-two 15s linear infinite alternate;
+}
+
+@keyframes cat-walk-one {
+  0%   { left: 5%; transform: scaleX(1); }
+  48%  { transform: scaleX(1); }
+  50%  { transform: scaleX(-1); }
+  100% { left: 85%; transform: scaleX(-1); }
+}
+
+@keyframes cat-walk-two {
+  0%   { left: 85%; transform: scaleX(-1); }
+  48%  { transform: scaleX(-1); }
+  50%  { transform: scaleX(1); }
+  100% { left: 5%; transform: scaleX(1); }
+}
+
+@media (max-width: 600px) {
+  #pet-area::before,
+  #pet-area::after {
+    width: 44px;
+    height: 44px;
+  }
+
+  #pet-area.pet-area {
+    bottom: 30px;
+  }
+}
